@@ -1,7 +1,6 @@
 require "able_attrs/definer"
 require "able_attrs/definition"
 require "able_attrs/mass_assignment_api"
-require "able_attrs/opts"
 require "able_attrs/processor"
 require "able_attrs/version"
 require "able_attrs/types"
