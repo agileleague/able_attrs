@@ -2,6 +2,7 @@ require "able_attrs/types/base"
 require "able_attrs/types/any"
 require "able_attrs/types/boolean"
 require "able_attrs/types/date"
+require "able_attrs/types/float"
 require "able_attrs/types/integer"
 
 module AbleAttrs
@@ -11,6 +12,7 @@ module AbleAttrs
         attr: Any,
         date: Date,
         integer: Integer,
+        float: Float,
         boolean: Boolean
       })
     end

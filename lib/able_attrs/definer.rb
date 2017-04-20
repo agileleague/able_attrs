@@ -18,6 +18,10 @@ module AbleAttrs
       attr(*field_names, type: named_types[:date].new(opts), default: default, &block)
     end
 
+    def float(*field_names, default: Unspecified, opts: {}, &block)
+      attr(*field_names, type: named_types[:float].new(opts), default: default, &block)
+    end
+
     def integer(*field_names, default: Unspecified, opts: {}, &block)
       attr(*field_names, type: named_types[:integer].new(opts), default: default, &block)
     end

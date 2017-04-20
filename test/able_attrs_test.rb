@@ -9,6 +9,25 @@ describe AbleAttrs do
     i = my_class.new({})
   end
 
+  it "supports float attrs" do
+    my_class = Class.new do
+      include AbleAttrs
+
+      able_attrs do
+        float :my_num
+      end
+    end
+
+    i = my_class.new({my_num: '123'})
+    assert_equal 123.0, i.my_num
+    i.my_num = nil
+    assert_nil i.my_num
+    i.my_num = 123
+    assert_equal 123.0, i.my_num
+    i.my_num = false
+    assert_nil i.my_num
+  end
+
   it "supports integer attrs" do
     my_class = Class.new do
       include AbleAttrs
