@@ -4,7 +4,7 @@ module AbleAttrs
       def import(value)
         case value
         when NilClass,::Date then value
-        when String
+        when ::String
           parse_string(value)
         end
       end

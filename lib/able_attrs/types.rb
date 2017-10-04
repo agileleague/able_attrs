@@ -4,16 +4,18 @@ require "able_attrs/types/boolean"
 require "able_attrs/types/date"
 require "able_attrs/types/float"
 require "able_attrs/types/integer"
+require "able_attrs/types/string"
 
 module AbleAttrs
   module Types
     def self.named_types
       @named_types ||= TypeList.new({
         attr: Any,
+        boolean: Boolean,
         date: Date,
-        integer: Integer,
         float: Float,
-        boolean: Boolean
+        integer: Integer,
+        string: String
       })
     end
 
@@ -67,7 +69,7 @@ module AbleAttrs
       case key
       when Symbol
         @hash[key.to_s]
-      when String
+      when ::String
         @hash[key.to_sym]
       else
         nil

@@ -27,8 +27,8 @@ Or install it yourself as:
 
 ## Usage
 
-Currently, the system supports three built-in type-coercions
-(`boolean`, `date`, and `integer`) which are accessible via the able_attrs definition DSL.
+Currently, the system supports five built-in type-coercions
+(`boolean`, `date`, `float`, `integer`, and `string`) which are accessible via the able_attrs definition DSL.
 
 You may also use your own type-coersion by supplying it to the more generic
 `attr` definition. The type that you supply must respond to `import` and
@@ -54,7 +54,7 @@ class MyForm
   able_attrs do
     boolean :accepts_terms
     date :birthday
-    attr :first_name, :last_name
+    string :first_name, :last_name, opts: {strip: true}
     attr :email, :login, type: sanitized_string
     integer :number_of_cats
   end
@@ -69,11 +69,14 @@ end
 
 response = MyForm.new({
   email: " Larry@example.com", login: "lazylarry", birthday: "1980-01-02",
-  first_name: "Larry", last_name: "Friendly", number_of_cats: "3"
+  first_name: "Larry", last_name: " Friendly", number_of_cats: "3"
 })
 
 response.email
 #=> "larry@example.com"
+
+response.last_name
+#=> "Friendly"
 
 response.accepts_terms
 #=> false

@@ -66,6 +66,23 @@ describe AbleAttrs do
     assert_nil i.my_date
   end
 
+  it "supports date attrs" do
+    my_class = Class.new do
+      include AbleAttrs
+
+      able_attrs do
+        string :my_string, opts: {strip: true}
+      end
+    end
+
+    i = my_class.new({my_string: " hello \r\n"})
+    assert_equal "hello", i.my_string
+    i.my_string = nil
+    assert_equal '', i.my_string
+    i.my_string = 123
+    assert_equal '123', i.my_string
+  end
+
   describe "booleans" do
     it "supports boolean attrs" do
       my_class = Class.new do

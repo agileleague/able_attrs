@@ -4,7 +4,7 @@ module AbleAttrs
       def import(value)
         case value
         when NilClass,::Float then value
-        when String, Numeric
+        when ::String, Numeric
           begin
             ::Kernel.Float(value)
           rescue ArgumentError

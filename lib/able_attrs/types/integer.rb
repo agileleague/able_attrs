@@ -4,7 +4,7 @@ module AbleAttrs
       def import(value)
         case value
         when NilClass,::Integer then value
-        when String
+        when ::String
           begin
             ::Kernel.Integer(value, 10)
           rescue ArgumentError

@@ -26,6 +26,10 @@ module AbleAttrs
       attr(*field_names, type: named_types[:integer].new(opts), default: default, &block)
     end
 
+    def string(*field_names, default: Unspecified, opts: {}, &block)
+      attr(*field_names, type: named_types[:string].new(opts), default: default, &block)
+    end
+
     def attr(*field_names, type: nil, default: Unspecified, &block)
       field_names.each do |field_name|
         if !(field_name =~ (/\A[\w_][\d\w_]*\z/i))
