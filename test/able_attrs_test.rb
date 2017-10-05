@@ -66,7 +66,7 @@ describe AbleAttrs do
     assert_nil i.my_date
   end
 
-  it "supports date attrs" do
+  it "supports string attrs" do
     my_class = Class.new do
       include AbleAttrs
 
@@ -81,6 +81,23 @@ describe AbleAttrs do
     assert_equal '', i.my_string
     i.my_string = 123
     assert_equal '123', i.my_string
+  end
+
+  it "supports array attrs" do
+    my_class = Class.new do
+      include AbleAttrs
+
+      able_attrs do
+        array :my_array
+      end
+    end
+
+    i = my_class.new({my_array: "hi"})
+    assert_equal ["hi"], i.my_array
+    i.my_array = nil
+    assert_equal [], i.my_array
+    i.my_array = [1, 'a']
+    assert_equal [1, 'a'], i.my_array
   end
 
   describe "booleans" do

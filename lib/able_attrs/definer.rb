@@ -10,6 +10,10 @@ module AbleAttrs
       @named_types = Types.named_types.copy
     end
 
+    def array(*field_names, default: Unspecified, opts: {}, &block)
+      attr(*field_names, type: named_types[:array].new(opts), default: default, &block)
+    end
+
     def boolean(*field_names, default: Unspecified, opts: {}, &block)
       attr(*field_names, type: named_types[:boolean].new(opts), default: default, &block)
     end

@@ -1,5 +1,6 @@
 require "able_attrs/types/base"
 require "able_attrs/types/any"
+require "able_attrs/types/array"
 require "able_attrs/types/boolean"
 require "able_attrs/types/date"
 require "able_attrs/types/float"
@@ -10,6 +11,7 @@ module AbleAttrs
   module Types
     def self.named_types
       @named_types ||= TypeList.new({
+        array: Array,
         attr: Any,
         boolean: Boolean,
         date: Date,

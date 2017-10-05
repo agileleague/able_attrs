@@ -28,7 +28,8 @@ Or install it yourself as:
 ## Usage
 
 Currently, the system supports five built-in type-coercions
-(`boolean`, `date`, `float`, `integer`, and `string`) which are accessible via the able_attrs definition DSL.
+(`array`, `boolean`, `date`, `float`, `integer`, and `string`) which
+are accessible via the able_attrs definition DSL.
 
 You may also use your own type-coersion by supplying it to the more generic
 `attr` definition. The type that you supply must respond to `import` and
